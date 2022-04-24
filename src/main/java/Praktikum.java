@@ -5,6 +5,7 @@ public class Praktikum {
         Account account = new Account(checkedName);
 
         boolean checkResult = account.checkNameToEmboss();
+        account.isNameHasCorrectSpacePosition();
 
         /*
              В этом методе заложи логику работы с классом Account.
