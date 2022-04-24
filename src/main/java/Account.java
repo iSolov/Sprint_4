@@ -11,21 +11,18 @@ public class Account {
         this.name = name;
     }
 
-    public boolean isNameLongerThanMinimumLength(){
-        return name.length() >= MIN_NAME_LENGTH;
-    }
-
-    public boolean isNameShorterThanMaximumLength(){
-        return name.length() <= MAX_NAME_LENGTH;
-    }
-
-    public boolean isNameHasCorrectSpacePosition(){
-        return Pattern.compile("^[A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+$").matcher(name).find();
-    }
-
     public boolean checkNameToEmboss() {
-        return isNameLongerThanMinimumLength()
-                && isNameShorterThanMaximumLength()
-                && isNameHasCorrectSpacePosition();
+        if (name == null){
+            return false;
+        }
+
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH){
+            return false;
+        }
+
+        return Pattern
+            .compile("^[A-Za-zА-Яа-я]{1," + (MAX_NAME_LENGTH - 2) + "} [A-Za-zА-Яа-я]{1," + (MAX_NAME_LENGTH - 2) + "}$")
+            .matcher(name)
+            .find();
     }
 }

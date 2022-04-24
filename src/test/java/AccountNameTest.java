@@ -17,6 +17,7 @@ public class AccountNameTest {
     @Parameterized.Parameters
     public static Object[][] getColorsData() {
         return new Object[][]{
+            { null, false },
             { "", false },
             { ".", false },
             { "+", false },
@@ -36,7 +37,9 @@ public class AccountNameTest {
             { "11111 22222", false },
             { "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa a", false },
             { "a aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", false },
-            { "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", false },
+            { "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", false },
+            { "aaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbb", false },
+            { "aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbb", false },
             { "aaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbb", false },
             { "I. Soloviev", false },
             { "ТимотейШевроле", false },
